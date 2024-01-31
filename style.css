@@ -9,17 +9,41 @@ main {
     padding: 3em;
 }
 
-.center {
-    margin: auto;
-    width: fit-content;
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: large;
+    background-color: #771bf0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2124b6;
 }
 
 h1 {
     text-align: center;
 }
 
+input {
+    border-radius: 20px;
+    border: 1px solid #2d9fd9;
+    width: 250px;
+    height: 30px;
+    padding-left: 10px;
+}
+
 input:focus {
     outline: none;
+}
+
+input, p {
+    font-size: large;
 }
 
 .invalid {
@@ -30,14 +54,18 @@ input:focus {
     color: #fff;
     padding: 0.5em;
     margin-top: 0.5em;
+    margin-bottom: 0.5em;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     width: 250px;
 }
 
-.f {
-    border-radius: 20px;
-    border: 1px solid #2d9fd9;
-    width: 250px;
-    height: 30px;
-    padding-left: 10px;
+.center {
+    margin: auto;
+    width: fit-content;
+}
+
+form.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
