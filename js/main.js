@@ -49,8 +49,7 @@ const authRequest = () => {
     /*if (true) { // Тест
         //showModal("Ошибка аутентификации", "Введите номер телефона");
         $("#auth").fadeOut(500, function () {
-        $("#success").css("display", "flex");
-            $("#success").stop().animate({ opacity: 1 }, 500);
+            $("#success").css("display", "flex").stop().animate({ opacity: 1 }, 500);
         });
         return;
     }*/
@@ -74,8 +73,7 @@ const authRequest = () => {
         switch (jqXHR.status) {
             case 200:
                 $("#auth").fadeOut(500, function () {
-                    $("#success").css("display", "flex");
-                    $("#success").stop().animate({ opacity: 1 }, 500);
+                    $("#success").css("display", "flex").stop().animate({ opacity: 1 }, 500);
                 });
                 break;
             case 401:
