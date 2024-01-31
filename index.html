@@ -24,15 +24,15 @@
 		<form id="auth" class="center">
 			<div>
 				<p class="center">Введите номер телефона</p>
-				<input type="tel" id="tel">
-				<div class='invalid'>&#10060;Только цифры и +</div>
+				<input type="tel" id="tel" name="phone">
+				<div class='invalid'>&#10060;Только цифры, + и -</div>
 			</div>
 			<div>
 				<p class="center">Введите пароль</p>
-				<input type="password" id="pass">
+				<input type="password" id="pass" name="password">
 				<div class='invalid'>&#10060;Обязательное поле</div>
 			</div>
-			<button type="button">Войти</button>
+			<button type="button" onclick="authRequest()">Войти</button>
 		</form>
 	</main>
 </body>

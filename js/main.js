@@ -16,6 +16,22 @@ const manageMessages = (element, pattern) => {
 }
 
 $(function () {
-    manageMessages('#tel', /^\+?\d+$/);
+    manageMessages('#tel', /^\+\d+(-\d+)+$/);
     manageMessages('#pass');
 });
+
+const authRequest = () => {
+    $.ajax({
+        url: "http://busstation.сделай.site/api/login",
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        data: JSON.stringify($("#auth").serializeArray().reduce((obj, item) => {
+            obj[item.name] = item.value;
+            return obj;
+        }, {}))
+    }).done((response) => {
+        console.log(response);
+    });
+}
