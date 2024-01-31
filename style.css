@@ -23,36 +23,15 @@ input:focus {
 }
 
 .invalid {
-    display: none;
-}
-
-#tel:placeholder-shown~.invalid,
-#pass:placeholder-shown~.invalid {
-    display: none !important;
-}
-
-form:invalid input[type='submit'] {
-    display: none;
-}
-
-#tel:invalid~.invalid,
-#pass:invalid~.invalid {
-    animation: message 1s;
-    display: inline-block;
+    opacity: 0;
+    visibility: hidden;
     background: #00C4B4;
+    text-align: center;
     color: #fff;
     padding: 0.5em;
+    margin-top: 0.5em;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes message {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+    width: 250px;
 }
 
 .f {

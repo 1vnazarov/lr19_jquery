@@ -21,11 +21,16 @@
 <body>
 	<main>
 		<h1>Покупка билетов</h1>
-		<form id="auth" class="center" novalidate>
+		<form id="auth" class="center">
 			<div>
-				<label for="tel">Введите номер телефона</label>
-				<input type="tel" class="f" id="tel" pattern="^\+?\d+$">
+				<p class="center">Введите номер телефона</p>
+				<input type="tel" class="f" id="tel">
 				<div class='invalid'>&#10060;Только цифры и +</div>
+			</div>
+			<div>
+				<p class="center">Введите пароль</p>
+				<input type="password" class="f" id="pass">
+				<div class='invalid'>&#10060;Обязательное поле</div>
 			</div>
 		</form>
 	</main>
