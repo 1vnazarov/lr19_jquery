@@ -14,15 +14,9 @@ const validateFormMessage = (element, pattern) => {
     $(element).on("input", function () {
         const input = $(this);
         const val = input.val();
-        const is_valid = pattern ? pattern.test(val) : true;
-        if (is_valid && val !== '') {
-            manageMessage(input, false);
-            input.data('valid', true);
-        }
-        else {
-            manageMessage(input, true);
-            input.data('valid', false);
-        }
+        const is_valid = pattern ? pattern.test(val) : val !== '';
+        manageMessage(input, !is_valid);
+        input.data('valid', is_valid);
         manageMessage($('button'), false);
     });
 }
