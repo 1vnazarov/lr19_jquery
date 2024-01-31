@@ -1,5 +1,5 @@
 const manageMessage = (parent, isShow) => {
-    const message = parent.next('.invalid');
+    const message = parent instanceof jQuery ? parent.next('.invalid') : $(parent).next('.invalid');
     if (isShow) {
         message.stop().css('visibility', 'visible').animate({ opacity: 1 }, 500);
     }
@@ -27,14 +27,34 @@ const validateFormMessage = (element, pattern) => {
     });
 }
 
+const closeModal = () => {
+    $("#modal").stop().animate({ opacity: 0 }, 500, function () {
+        $(this).css('visibility', 'hidden');
+    });
+};
+
+const showModal = (header, message, button) => {
+    $("#modal h2").text(header);
+    $("#modal p").text(message);
+    $("#modal").stop().css('visibility', 'visible').animate({ opacity: 1 }, 500);
+};
+
 $(function () {
     validateFormMessage('#tel', /^\+\d+(-\d+)+$/);
     validateFormMessage('#pass');
+    $('#modal-close, #modal-close-btn').on("click", closeModal);
 });
 
 const authRequest = () => {
+    if (true) { // Тест
+        //showModal("Ошибка аутентификации", "Введите номер телефона");
+        $("#auth").fadeOut(500, function () {
+            $("#success").fadeIn(500);
+        });
+        return;
+    }
     if (!$('#tel').data('valid') || !$('#pass').data('valid')) {
-        manageMessage($('button'), true);
+        manageMessage('#submit', true);
         return;
     }
 
@@ -48,7 +68,18 @@ const authRequest = () => {
             obj[item.name] = item.value;
             return obj;
         }, {}))
-    }).done((response) => {
-        console.log(response);
+    }).always((response, textStatus, jqXHR) => {
+        console.log(response, textStatus);
+        switch (jqXHR.status) {
+            case 200:
+                $("#auth").fadeOut(500, function () {
+                    $("#success").fadeIn(500);
+                });
+                break;
+            case 401:
+                const error = JSON.parse(jqXHR.responseText);
+                showModal("Ошибка аутентификации", Object.values(error.error.errors).join('\n'));
+                break;
+        }
     });
 }

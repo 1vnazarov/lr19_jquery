@@ -41,7 +41,9 @@ input:focus {
     outline: none;
 }
 
-input, button, p {
+input,
+button,
+p {
     font-size: large;
 }
 
@@ -67,4 +69,70 @@ form.center {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.d-none {
+    display: none;
+}
+
+#modal {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modal-content {
+    align-self: center;
+    justify-self: center;
+    border-radius: 20px;
+    text-align: center;
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+#modal-content h2 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+#modal-content p {
+    margin-top: 0.5rem;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+#modal-close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 3rem;
+    font-weight: bold;
+    padding-top: 0.5rem;
+    padding-right: 2rem;
+}
+
+#modal-close:hover,
+#modal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modal-content hr {
+    border: none;
+    border-top: 2px solid #888;
+    width: 100%;
+    margin: auto;
 }

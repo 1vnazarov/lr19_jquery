@@ -32,10 +32,23 @@
 				<input type="password" id="pass" name="password">
 				<div class='invalid'>&#10060;Обязательное поле</div>
 			</div>
-			<button type="button" onclick="authRequest()">Войти</button>
+			<button type="button" id="submit" onclick="authRequest()">Войти</button>
 			<div class='invalid'>&#10060;Необходимо исправить ошибки валидации</div>
 		</form>
+		<div id="success" class="d-none">
+			<img src="office.jpg" width="800px">
+			<button>Перейти к покупкам</button>
+		</div>
 	</main>
+	<div id="modal">
+		<div id="modal-content">
+			<span id="modal-close">&times;</span>
+			<h2></h2>
+			<hr>
+			<p></p>
+			<button id="modal-close-btn">Закрыть</button>
+		</div>
+	</div>
 </body>
 
 </html>
