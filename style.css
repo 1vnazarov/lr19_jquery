@@ -1,0 +1,64 @@
+body {
+    background: thistle;
+}
+
+main {
+    min-height: 80vh;
+    width: 75%;
+    margin: auto;
+    padding: 3em;
+}
+
+.center {
+    margin: auto;
+    width: fit-content;
+}
+
+h1 {
+    text-align: center;
+}
+
+input:focus {
+    outline: none;
+}
+
+.invalid {
+    display: none;
+}
+
+#tel:placeholder-shown~.invalid,
+#pass:placeholder-shown~.invalid {
+    display: none !important;
+}
+
+form:invalid input[type='submit'] {
+    display: none;
+}
+
+#tel:invalid~.invalid,
+#pass:invalid~.invalid {
+    animation: message 1s;
+    display: inline-block;
+    background: #00C4B4;
+    color: #fff;
+    padding: 0.5em;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes message {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.f {
+    border-radius: 20px;
+    border: 1px solid #2d9fd9;
+    width: 250px;
+    height: 30px;
+    padding-left: 10px;
+}
