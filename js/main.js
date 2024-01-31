@@ -33,7 +33,7 @@ const closeModal = () => {
     });
 };
 
-const showModal = (header, message, button) => {
+const showModal = (header, message) => {
     $("#modal h2").text(header);
     $("#modal p").text(message);
     $("#modal").stop().css('visibility', 'visible').animate({ opacity: 1 }, 500);
@@ -46,13 +46,14 @@ $(function () {
 });
 
 const authRequest = () => {
-    if (true) { // Тест
+    /*if (true) { // Тест
         //showModal("Ошибка аутентификации", "Введите номер телефона");
         $("#auth").fadeOut(500, function () {
-            $("#success").fadeIn(500);
+        $("#success").css("display", "flex");
+            $("#success").stop().animate({ opacity: 1 }, 500);
         });
         return;
-    }
+    }*/
     if (!$('#tel').data('valid') || !$('#pass').data('valid')) {
         manageMessage('#submit', true);
         return;
@@ -73,7 +74,8 @@ const authRequest = () => {
         switch (jqXHR.status) {
             case 200:
                 $("#auth").fadeOut(500, function () {
-                    $("#success").fadeIn(500);
+                    $("#success").css("display", "flex");
+                    $("#success").stop().animate({ opacity: 1 }, 500);
                 });
                 break;
             case 401:

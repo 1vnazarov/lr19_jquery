@@ -71,8 +71,17 @@ form.center {
     align-items: center;
 }
 
-.d-none {
-    display: none;
+#success {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#success img {
+    max-width: 100%;
+    height: auto;
 }
 
 #modal {
