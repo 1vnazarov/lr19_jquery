@@ -53,7 +53,7 @@ const authRequest = () => {
     }
 
     $.ajax({
-        url: "http://busstation.сделай.site/api/login",
+        url: "https://busstation.сделай.site/api/login",
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -62,16 +62,16 @@ const authRequest = () => {
             obj[item.name] = item.value;
             return obj;
         }, {}))
-    }).always((response, textStatus, jqXHR) => {
-        console.log(response, textStatus);
-        switch (jqXHR.status) {
+    }).always((response) => {
+        console.log(response);
+        switch (response.status) {
             case 200:
                 $("#auth").fadeOut(500, function () {
                     $("#success").css("display", "flex").stop().animate({ opacity: 1 }, 500);
                 });
                 break;
             case 401:
-                const error = JSON.parse(jqXHR.responseText);
+                const error = JSON.parse(response.responseText);
                 showModal("Ошибка аутентификации", Object.values(error.error.errors).join('\n'));
                 break;
         }
