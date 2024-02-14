@@ -61,19 +61,17 @@ const authRequest = () => {
         data: JSON.stringify($("#auth").serializeArray().reduce((obj, item) => {
             obj[item.name] = item.value;
             return obj;
-        }, {}))
-    }).always((response) => {
-        console.log(response);
-        switch (response.status) {
-            case 200:
+        }, {})),
+        statusCode: {
+            200: function() {
                 $("#auth").fadeOut(500, function () {
                     $("#success").css("display", "flex").stop().animate({ opacity: 1 }, 500);
                 });
-                break;
-            case 401:
+            },
+            401: function(response) {
                 const error = JSON.parse(response.responseText);
                 showModal("Ошибка аутентификации", Object.values(error.error.errors).join('\n'));
-                break;
-        }
+            }
+          }
     });
 }
